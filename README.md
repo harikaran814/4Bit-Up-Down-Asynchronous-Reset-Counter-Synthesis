@@ -20,6 +20,24 @@ Synthesis requires three files as follows,
 
 ◦ SDC (Synopsis Design Constraint) File (.sdc)
 
+### Creating Source Code :
+### Verilog Code :
+~~~
+`timescale 1ns / 1 ns
+module counter(clk,m,rst,count);
+input clk,m,rst;
+output reg [3:0] count;
+always@(posedge clk or negedge rst)
+begin
+if (!rst)
+count=0;
+else if(m)
+count=count+1;
+else
+count=count-1;
+end
+endmodule
+~~~
  ### Step 2 : Creating an SDC File
 
 •	In your terminal type “gedit input_constraints.sdc” to create an SDC File if you do not have one.
@@ -65,17 +83,20 @@ used.
 
 #### Synthesis RTL Schematic :
 
+![Screenshot 2024-11-23 154957](https://github.com/user-attachments/assets/66002d6a-4153-4370-a131-38f05736fbfe)
+
 #### Area report:
+
+![Screenshot 2024-11-23 155032](https://github.com/user-attachments/assets/21e27115-65fb-4f2f-a630-791424ef8c93)
 
 #### Power Report:
 
+![Screenshot 2024-11-23 155045](https://github.com/user-attachments/assets/8caf6064-481e-4826-86a0-0cc49648f221)
+
 #### Timing Report: 
+
+![Screenshot 2024-11-23 155104](https://github.com/user-attachments/assets/a0eb6580-6adc-4f2d-b423-3e525b8ff71f)
 
 #### Result: 
 
 The generic netlist has been created, and area, power, and timing reports have been tabulated and generated using Genus.
-
-
-
-
-
